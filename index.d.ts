@@ -6,6 +6,8 @@ interface options {
 }
 interface label {
     name: string;
+    color: string;
+    description: string;
 }
-declare const _default: ({ label: { name }, owner, repo, token }: options) => Promise<object>;
+declare const _default: ({ label: { name, color, description }, owner, repo, token }: options) => Promise<object>;
 export default _default;
