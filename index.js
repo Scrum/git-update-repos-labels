@@ -38,13 +38,13 @@ var _this = this;
 exports.__esModule = true;
 var ghGot = require("gh-got");
 exports["default"] = (function (_a) {
-    var name = _a.label.name, owner = _a.owner, repo = _a.repo, token = _a.token;
+    var _b = _a.label, name = _b.name, color = _b.color, description = _b.description, owner = _a.owner, repo = _a.repo, token = _a.token;
     return __awaiter(_this, void 0, void 0, function () {
-        return __generator(this, function (_b) {
-            return [2 /*return*/, ghGot["delete"]("repos/" + owner + "/" + repo + "/labels/" + name, {
+        return __generator(this, function (_c) {
+            return [2 /*return*/, ghGot.patch("repos/" + owner + "/" + repo + "/labels/" + name, {
                     json: true,
                     token: token,
-                    body: { name: name }
+                    body: { name: name, color: color, description: description }
                 })];
         });
     });
