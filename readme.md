@@ -12,7 +12,16 @@ npm install git-update-repos-labels
 ```js
 import gitUpdateReposLabels from 'git-update-repos-labels';
 
-gitUpdateReposLabels({label: {name: 'bug', color: 'd73a4a', description: 'Something isn\'t working'}, owner: 'scrum', repo: 'slims', token: '59bd8d5eb1980b7f926f2d106f4f2f0312fdf97f'});
+const token = '59bd8d5eb1980b7f926f2d106f4f2f0312fdf97f';
+const label = {
+  id: 'MDU6TGFiZWwxNDg1MjAwMjk2', 
+  color: 'ededed', 
+  name: 'status: in progress', 
+  description: null
+};
+
+gitUpdateReposLabels({label, token});
+//=> {id: "MDU6TGFiZWwxNDg1MjAwMjk2", "name": "status: in progress", "color": "ededed", "description": null}
 ```
 > will be update label in repository
 
@@ -21,19 +30,7 @@ gitUpdateReposLabels({label: {name: 'bug', color: 'd73a4a', description: 'Someth
 
 Type: `object` **`Required`**  
 Default: `undefined`  
-Description: *label creation options `{name: string, color: string, description: string}` when `{name, color}` are required*
-
-#### `owner`
-
-Type: `String` **`Required`**  
-Default: `undefined`  
-Description: *Github owner or organization name.*
-
-#### `repo`
-
-Type: `String` **`Required`**  
-Default: `undefined`  
-Description: *Repository name.*
+Description: *label creation options `{id: string, name: string, color: string, description: string}` when `{id, name, color}` are required*
 
 #### `token`
 
