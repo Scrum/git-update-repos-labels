@@ -1,22 +1,33 @@
-import ghGot = require('gh-got');
+import graphqlGot = require('graphql-got');
 
 interface options {
   label: label,
-  owner: string,
-  repo: string,
   token: string
 }
 
 interface label {
+  id: string,
   name: string,
   color: string,
   description: string
 }
 
-export default async ({label: {name, color, description}, owner, repo, token}: options): Promise<object> => {
-  return ghGot.patch(`repos/${owner}/${repo}/labels/${name}`, {
-    json: true,
-    token,
-    body: {name, color, description}
-  });
+export default ({label: {id, name, color, description}, token}: options) => {
+  return graphqlGot('https://api.github.com/graphql', {
+    query: `mutation {
+      updateLabel(input: {id: "${id}", name: "${name}", color: "${color}", description: ${description}}) {
+        label {
+          id
+          name
+          color
+          description
+        }
+      }
+    }`, 
+    headers: {
+      'accept': 'application/vnd.github.bane-preview+json'
+    },
+    token
+  }).then(({body: {updateLabel: {label}}}) => label);
 }
+
