@@ -23,7 +23,6 @@ const label = {
 gitUpdateReposLabels({label, token});
 //=> {id: "MDU6TGFiZWwxNDg1MjAwMjk2", "name": "status: in progress", "color": "ededed", "description": null}
 ```
-> will be update label in repository
 
 ## API
 #### `label`
