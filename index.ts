@@ -12,10 +12,10 @@ interface label {
   description: string
 }
 
-export default ({label: {id, name, color, description}, token}: options) => {
+export default ({label: {id, name, color, description = ''}, token}: options) => {
   return graphqlGot('https://api.github.com/graphql', {
     query: `mutation {
-      updateLabel(input: {id: "${id}", name: "${name}", color: "${color}", description: ${description}}) {
+      updateLabel(input: {id: "${id}", name: "${name}", color: "${color}", description: "${description}"}) {
         label {
           id
           name
