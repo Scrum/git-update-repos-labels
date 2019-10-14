@@ -15,9 +15,6 @@
     "github",
     "labels"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Scrum"
-  },
   "author": "scrum",
   "license": "MIT",
   "dependencies": {
