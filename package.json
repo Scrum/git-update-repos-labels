@@ -1,6 +1,6 @@
 {
   "name": "git-update-repos-labels",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A tiny helper to update of label in the github repository",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,9 @@
     "github",
     "labels"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Scrum"
+  },
   "author": "scrum",
   "license": "MIT",
   "dependencies": {
